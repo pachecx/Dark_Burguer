@@ -1,12 +1,15 @@
+import Header from './components/Header'
 import Login from './pages/Login'
+import MenuPage from './pages/Menu'
 
 function App() {
 
   return (
-    <>
-    <Login />
+    <main className=''>
+    <Header userName={'Matheus'} />
+    <MenuPage />
     
-    </>
+    </main>
   )
 }
 
