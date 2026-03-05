@@ -1,6 +1,3 @@
-// Header.tsx
-import React from "react";
-
 type HeaderProps = {
   userName: string;
   title?: string; 
@@ -30,7 +27,7 @@ export default function Header({ userName, title = "darkBUguer" }: HeaderProps) 
         {/* Right: User */}
         <div className="flex items-center gap-3">
           <div className="hidden sm:flex flex-col items-end leading-tight">
-            <span className="text-[11px] text-zinc-500">Bem-vindo,</span>
+            <span className="text-[11px] text-amber-400">Bem-vindo,</span>
             <span className="text-sm font-semibold text-zinc-100">{userName}</span>
           </div>
 

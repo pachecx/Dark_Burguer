@@ -1,4 +1,3 @@
-import * as React from "react";
 import type { IconProps } from "./types";
 
 export function BurgerIcon({ className, strokeWidth = 1.8, ...props }: IconProps) {

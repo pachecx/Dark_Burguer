@@ -1,79 +1,25 @@
-// MenuPage.tsx
-import React from "react";
-import Header from "../components/Header"; 
 import { ArrowRightIcon, BurgerIcon } from "../assets/icons";
 import { SearchIcon } from "../assets/icons/SearchIcon";
 import { FireIcon } from "../assets/icons/FireIcon";
 import { CartIcon } from "../assets/icons/CartIcon";
 import { ClockIcon } from "../assets/icons/ClockIcon";
 import { PlusIcon } from "../assets/icons/PlusIcon";
-
-type MenuItem = {
-  id: string;
-  name: string;
-  desc: string;
-  price: string;
-  tag?: string;
-  category: "Burgers" | "Combos" | "Acompanhamentos" | "Bebidas";
-};
-
-const mockItems: MenuItem[] = [
-  {
-    id: "1",
-    name: "Dark Smash",
-    desc: "Duplo smash • cheddar • cebola caramelizada",
-    price: "R$ 34,90",
-    tag: "Destaque",
-    category: "Burgers",
-  },
-  {
-    id: "2",
-    name: "Bug Bacon",
-    desc: "Bacon crocante • molho da casa • queijo",
-    price: "R$ 36,90",
-    category: "Burgers",
-  },
-  {
-    id: "3",
-    name: "Combo Dark",
-    desc: "Dark Smash + batata + refri",
-    price: "R$ 49,90",
-    tag: "Melhor custo",
-    category: "Combos",
-  },
-  {
-    id: "4",
-    name: "Batata Trufada",
-    desc: "Batata • parmesão • toque trufado",
-    price: "R$ 19,90",
-    category: "Acompanhamentos",
-  },
-  {
-    id: "5",
-    name: "Refrigerante Lata",
-    desc: "350ml • gelado",
-    price: "R$ 6,90",
-    category: "Bebidas",
-  },
-];
-
-const categories: Array<MenuItem["category"] | "Todos"> = [
-  "Todos",
-  "Burgers",
-  "Combos",
-  "Acompanhamentos",
-  "Bebidas",
-];
+import { mockItems } from "../data/Produtos.mock";
+import type { MenuItem } from "../data/types.produtos";
+import { categories } from "../data/types.produtos";
+import {DarkBuguerSwiper} from "../components/CategorySwiper";
 
 export default function MenuPage() {
   return (
     <div className="min-h-screen max-w-screen bg-zinc-950">
-
       {/* Background accent */}
       <div className="pointer-events-none absolute -left-35 top-24 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-40 top-130 h-96 w-96 rounded-full bg-orange-500/8 blur-3xl" />
 
       <main className="relative mx-auto w-full max-w-6xl px-4 py-6">
+        
+        <DarkBuguerSwiper slides={[]} />
+
         {/* Page heading */}
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -170,7 +116,7 @@ export default function MenuPage() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {mockItems.map((item) => (
+            {mockItems.map((item: MenuItem) => (
               <MenuCard key={item.id} item={item} />
             ))}
           </div>
@@ -184,7 +130,9 @@ export default function MenuPage() {
                 <CartIcon className="h-5 w-5 text-amber-300" />
               </div>
               <div className="leading-tight">
-                <p className="text-sm font-semibold text-zinc-100">Seu carrinho</p>
+                <p className="text-sm font-semibold text-zinc-100">
+                  Seu carrinho
+                </p>
                 <p className="text-xs text-zinc-400">0 itens • R$ 0,00</p>
               </div>
             </div>
