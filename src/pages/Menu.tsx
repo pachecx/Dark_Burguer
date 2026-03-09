@@ -7,7 +7,7 @@ import { PlusIcon } from "../assets/icons/PlusIcon";
 import { mockItems } from "../data/Produtos.mock";
 import type { MenuItem } from "../data/types.produtos";
 import { categories } from "../data/types.produtos";
-import {DarkBuguerSwiper} from "../components/CategorySwiper";
+// import {DarkBuguerSwiper} from "../components/CategorySwiper";
 
 export default function MenuPage() {
   return (
@@ -18,7 +18,7 @@ export default function MenuPage() {
 
       <main className="relative mx-auto w-full max-w-6xl px-4 py-6">
         
-        <DarkBuguerSwiper slides={[]} />
+        {/* <DarkBuguerSwiper slides={[]} /> */}
 
         {/* Page heading */}
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
