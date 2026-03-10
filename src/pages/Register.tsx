@@ -2,17 +2,14 @@ import React from "react";
 import { EyeIcon } from "../assets/icons/EyeIcon";
 
 export default function Cadastro() {
-
-  const [nome, setNome] = React.useState("")
-  const [email, setEmail] = React.useState("")
-  const [password, setPassword] = React.useState("")
-  const [phone, setPhone] = React.useState("")
-
-
+  const [nome, setNome] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [phone, setPhone] = React.useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#07070b] text-white/90">
       {/* BG glow + scanlines */}
