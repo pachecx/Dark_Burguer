@@ -1,18 +1,11 @@
-import Header from './components/Header'
-import CartItem from './pages/CartItem'
-import Login from './pages/Login'
-import MenuPage from './pages/Menu'
-import Register from './pages/Register'
-
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
 function App() {
-
   return (
-    <main className=''>
-    <Header userName={'Matheus'} />
-    <CartItem />
-    
-    </main>
-  )
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

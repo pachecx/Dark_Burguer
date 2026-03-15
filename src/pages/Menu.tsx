@@ -189,7 +189,7 @@ function MenuCard({ item }: { item: MenuItem }) {
 
           <button
             type="button"
-            className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/30 px-3 py-2 text-sm font-medium text-zinc-100 transition hover:bg-zinc-950/50 active:scale-[0.99]"
+            className="cursor-pointer inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/30 px-3 py-2 text-sm font-medium text-zinc-100 transition hover:bg-zinc-950/50 active:scale-[0.99]"
           >
             <PlusIcon className="h-4 w-4 text-amber-300" />
             Adicionar
