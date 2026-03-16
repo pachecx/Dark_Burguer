@@ -30,16 +30,16 @@ export default function MenuPage() {
           <div className="flex items-center gap-2">
             <button
               type="button"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/50 px-3 py-2 text-sm font-medium text-zinc-100 transition hover:bg-zinc-900/70 active:scale-[0.99]"
+              className="cursor-pointer inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/50 px-3 py-2 text-sm font-medium text-zinc-100 transition hover:bg-zinc-900/70 active:scale-[0.99]"
             >
               <FireIcon className="h-5 w-5 text-amber-300" />
               Promoções
             </button>
             <button
               type="button"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/50 px-3 py-2 text-sm font-medium text-zinc-100 transition hover:bg-zinc-900/70 active:scale-[0.99]"
+              className="cursor-pointer inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/50 px-3 py-2 text-sm font-medium text-zinc-100 transition hover:bg-zinc-900/70 active:scale-[0.99]"
             >
-              <ClockIcon className="h-5 w-5 text-zinc-200" />
+              <ClockIcon className="cursor-pointer h-5 w-5 text-zinc-200" />
               Repetir pedido
             </button>
           </div>
@@ -61,7 +61,7 @@ export default function MenuPage() {
               <button
                 key={c}
                 type="button"
-                className="rounded-full border border-white/10 bg-zinc-900/40 px-3 py-1.5 text-sm text-zinc-200 transition hover:bg-zinc-900/70 hover:text-zinc-50"
+                className="cursor-pointer rounded-full border border-white/10 bg-zinc-900/40 px-3 py-1.5 text-sm text-zinc-200 transition hover:bg-zinc-900/70 hover:text-zinc-50"
               >
                 {c}
               </button>

@@ -5,6 +5,7 @@ import {
   LockIcon,
   ArrowRightIcon,
 } from "../assets/icons";
+import { Link } from "react-router-dom";
 
 type Props = {
   brandName?: string;
@@ -130,12 +131,11 @@ export default function LoginPage({ brandName = "darkBUguer" }: Props) {
 
               <p className="mt-3 text-center text-sm text-zinc-400">
                 Não tem conta?{" "}
-                <button
-                  type="button"
-                  className="cursor-pointer font-semibold text-amber-300 underline decoration-amber-500/30 underline-offset-4 transition hover:text-amber-200"
-                >
+                <Link
+                  className="cursor-pointer font-semibold text-amber-300 underline decoration-amber-500/30 underline-offset-4 transition hover:text-amber-200" 
+                  to={"/Register"}>
                   Criar conta
-                </button>
+                </Link>
               </p>
             </form>
           </div>

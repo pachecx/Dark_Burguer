@@ -44,16 +44,16 @@ export default function Header({
 
           {/* Dropdown */}
           {menuOpen && (
-            <div className="absolute left-0 mt-2 w-56 rounded-2xl border border-white/10 bg-zinc-900 shadow-xl">
-              <MenuItem label="Cardápio" onClick={closeMenu} />
-              <MenuItem label="Promoções" onClick={closeMenu} />
-              <MenuItem label="Meus pedidos" onClick={closeMenu} />
-              <MenuItem label="Favoritos" onClick={closeMenu} />
+            <div className="flex-direction: column absolute left-0 mt-2 w-56 rounded-2xl border border-white/10 bg-zinc-900 shadow-xl">
+              <MenuItem label="Cardápio" onClick={closeMenu} pass={"/"} />
+              <MenuItem label="Promoções" onClick={closeMenu} pass={""} />
+              <MenuItem label="Meus pedidos" onClick={closeMenu} pass={""} />
+              <MenuItem label="Favoritos" onClick={closeMenu} pass={""} />
 
-              <div className="my-1 border-t border-white/10" />
+              <div className="flex-direction: column my-1 border-t border-white/10" />
 
-              <MenuItem label="Configurações" onClick={closeMenu} />
-              <MenuItem label="Sair" onClick={closeMenu} danger />
+              <MenuItem label="Configurações" onClick={closeMenu} pass={""} />
+              <MenuItem label="Sair" onClick={closeMenu} danger pass={""} />
             </div>
           )}
         </div>

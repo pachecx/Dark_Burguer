@@ -1,5 +1,6 @@
 import React from "react";
 import { EyeIcon } from "../assets/icons/EyeIcon";
+import { Link } from "react-router-dom";
 
 export default function Cadastro() {
   const [nome, setNome] = React.useState("");
@@ -225,12 +226,12 @@ export default function Cadastro() {
 
               <p className="mt-4 text-center text-zinc-300">
                 Já tem conta?{" "}
-                <a
-                  href="#"
+                <Link
+                  to={"/Login"}
                   className="cursor-pointer text-amber-200 underline decoration-amber-200/35 underline-offset-4 hover:decoration-amber-200/80"
                 >
                   Fazer login
-                </a>
+                </Link>
               </p>
             </form>
           </main>
