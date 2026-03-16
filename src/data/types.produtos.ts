@@ -4,6 +4,7 @@ export type MenuItem = {
   desc: string;
   price: string;
   tag?: string;
+  image: string;
   category: "Burgers" | "Combos" | "Acompanhamentos" | "Bebidas";
 };
 

@@ -9,6 +9,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 36,90",
     tag: "Destaque",
     category: "Burgers",
+    image: "https://images.unsplash.com/photo-1550547660-d9450f859349"
   },
   {
     id: "2",
@@ -16,6 +17,7 @@ export const mockItems: MenuItem[] = [
     desc: "Blend 180g • queijo prato • bacon crocante • molho dark sweet",
     price: "R$ 39,90",
     category: "Burgers",
+    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd"
   },
   {
     id: "3",
@@ -24,6 +26,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 38,90",
     tag: "Mais pedido",
     category: "Burgers",
+    image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086"
   },
   {
     id: "4",
@@ -31,6 +34,7 @@ export const mockItems: MenuItem[] = [
     desc: "Blend 180g • mussarela • cebola roxa • barbecue defumado • alface",
     price: "R$ 37,90",
     category: "Burgers",
+    image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add"
   },
   {
     id: "5",
@@ -38,8 +42,8 @@ export const mockItems: MenuItem[] = [
     desc: "Duplo smash • cheddar • molho spicy • picles • cebola caramelizada",
     price: "R$ 37,90",
     category: "Burgers",
+    image: "https://images.unsplash.com/photo-1586816001966-79b736744398"
   },
-  // +3 Burgers
   {
     id: "13",
     name: "Eren Titan",
@@ -47,6 +51,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 38,90",
     tag: "Apimentado",
     category: "Burgers",
+    image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5"
   },
   {
     id: "14",
@@ -55,6 +60,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 41,90",
     tag: "Premium",
     category: "Burgers",
+    image: "https://images.unsplash.com/photo-1553979459-d2229ba7433b"
   },
   {
     id: "15",
@@ -63,6 +69,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 40,90",
     tag: "Mais pedido",
     category: "Burgers",
+    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
   },
 
   // Combos
@@ -73,6 +80,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 54,90",
     tag: "Melhor custo",
     category: "Combos",
+    image: "https://images.unsplash.com/photo-1561758033-d89a9ad46330"
   },
   {
     id: "7",
@@ -80,6 +88,7 @@ export const mockItems: MenuItem[] = [
     desc: "Naruto Kyuubi + batata + refri",
     price: "R$ 53,90",
     category: "Combos",
+    image: "https://images.unsplash.com/photo-1600891963935-c6c2c3f8c5f4"
   },
   {
     id: "8",
@@ -87,8 +96,8 @@ export const mockItems: MenuItem[] = [
     desc: "Deku Dark + batata + refri",
     price: "R$ 52,90",
     category: "Combos",
+    image: "https://images.unsplash.com/photo-1550317138-10000687a72b"
   },
-  // +3 Combos
   {
     id: "16",
     name: "Combo Sukuna",
@@ -96,6 +105,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 56,90",
     tag: "Destaque",
     category: "Combos",
+    image: "https://images.unsplash.com/photo-1600891965050-8c5c4c90b5b4"
   },
   {
     id: "17",
@@ -103,6 +113,7 @@ export const mockItems: MenuItem[] = [
     desc: "Eren Titan + batata + refri",
     price: "R$ 55,90",
     category: "Combos",
+    image: "https://images.unsplash.com/photo-1600891964092-4316c288032e"
   },
   {
     id: "18",
@@ -111,6 +122,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 58,90",
     tag: "Premium",
     category: "Combos",
+    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd"
   },
 
   // Acompanhamentos
@@ -121,6 +133,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 21,90",
     tag: "Destaque",
     category: "Acompanhamentos",
+    image: "https://images.unsplash.com/photo-1576107232684-1279f390859f"
   },
   {
     id: "10",
@@ -128,8 +141,8 @@ export const mockItems: MenuItem[] = [
     desc: "Anéis de cebola crocantes • tempero da casa • molho dark",
     price: "R$ 18,90",
     category: "Acompanhamentos",
+    image: "https://images.unsplash.com/photo-1639024471283-03518883512d"
   },
-  // +3 Acompanhamentos
   {
     id: "19",
     name: "Batata Infernal",
@@ -137,6 +150,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 20,90",
     tag: "Apimentado",
     category: "Acompanhamentos",
+    image: "https://images.unsplash.com/photo-1585109649139-366815a0d713"
   },
   {
     id: "20",
@@ -144,6 +158,7 @@ export const mockItems: MenuItem[] = [
     desc: "8 unidades • crocantes • molho dark BBQ",
     price: "R$ 17,90",
     category: "Acompanhamentos",
+    image: "https://images.unsplash.com/photo-1608039755401-742074f0548d"
   },
   {
     id: "21",
@@ -152,6 +167,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 16,90",
     tag: "Extra",
     category: "Acompanhamentos",
+    image: "https://images.unsplash.com/photo-1559847844-5315695dadae"
   },
 
   // Bebidas
@@ -161,6 +177,7 @@ export const mockItems: MenuItem[] = [
     desc: "350ml • bem gelado",
     price: "R$ 6,90",
     category: "Bebidas",
+    image: "https://images.unsplash.com/photo-1581006852262-e4307cf6283a"
   },
   {
     id: "12",
@@ -168,8 +185,8 @@ export const mockItems: MenuItem[] = [
     desc: "500ml • limão • toque de hortelã",
     price: "R$ 9,90",
     category: "Bebidas",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc"
   },
-  // +3 Bebidas
   {
     id: "22",
     name: "Soda Black Lemon",
@@ -177,6 +194,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 10,90",
     tag: "Refrescante",
     category: "Bebidas",
+    image: "https://images.unsplash.com/photo-1544145945-f90425340c7e"
   },
   {
     id: "23",
@@ -185,6 +203,7 @@ export const mockItems: MenuItem[] = [
     price: "R$ 19,90",
     tag: "Destaque",
     category: "Bebidas",
+    image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699"
   },
   {
     id: "24",
@@ -192,5 +211,6 @@ export const mockItems: MenuItem[] = [
     desc: "500ml • sem gás",
     price: "R$ 4,90",
     category: "Bebidas",
-  },
+    image: "https://images.unsplash.com/photo-1616118132534-381148898bb4"
+  }
 ];
