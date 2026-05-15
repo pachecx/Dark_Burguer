@@ -24,10 +24,6 @@ export default function Header({
     setMenuOpen(!menuOpen);
   }
 
-  function closeMenu() {
-    setMenuOpen(false);
-  }
-
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-zinc-950/60 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
@@ -45,15 +41,15 @@ export default function Header({
           {/* Dropdown */}
           {menuOpen && (
             <div className="flex-direction: column absolute left-0 mt-2 w-56 rounded-2xl border border-white/10 bg-zinc-900 shadow-xl">
-              <MenuItem label="Cardápio" onClick={closeMenu} pass={"/"} />
-              <MenuItem label="Promoções" onClick={closeMenu} pass={""} />
-              <MenuItem label="Meus pedidos" onClick={closeMenu} pass={""} />
-              <MenuItem label="Favoritos" onClick={closeMenu} pass={""} />
+              <MenuItem label="Cardápio" pass={"/"} />
+              <MenuItem label="Promoções" pass={""} />
+              <MenuItem label="Meus pedidos" pass={""} />
+              <MenuItem label="Favoritos" pass={""} />
 
               <div className="flex-direction: column my-1 border-t border-white/10" />
 
-              <MenuItem label="Configurações" onClick={closeMenu} pass={""} />
-              <MenuItem label="Sair" onClick={closeMenu} danger pass={""} />
+              <MenuItem label="Configurações" pass={""} />
+              <MenuItem label="Sair" danger pass={""} />
             </div>
           )}
         </div>

@@ -1,8 +1,15 @@
 import { PlusIcon } from "../assets/icons/PlusIcon";
 import type { MenuItem } from "../data/types.produtos";
 import burguer from "../assets/Image.png";
+import { useCart } from "../contexts/CartContext";
 
 export function MenuCard({ item }: { item: MenuItem }) {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(item);
+  };
+
   return (
     <article className="group overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/50 transition hover:border-amber-500/20 hover:bg-zinc-900/70">
       {/* Image placeholder */}
@@ -43,8 +50,9 @@ export function MenuCard({ item }: { item: MenuItem }) {
           <p className="text-sm font-semibold text-amber-300">{item.price}</p>
 
           <button
+            onClick={handleAddToCart}
             type="button"
-            className="cursor-pointer inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/30 px-3 py-2 text-sm font-medium text-zinc-100 transition hover:bg-zinc-950/50 active:scale-[0.99]"
+            className="cursor-pointer inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/30 px-3 py-2 text-sm font-medium text-zinc-100 transition hover:bg-amber-500/20 hover:border-amber-500/30 active:scale-[0.99]"
           >
             <PlusIcon className="h-4 w-4 text-amber-300" />
             Adicionar

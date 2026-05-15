@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRightIcon } from "../assets/icons";
 import { SearchIcon } from "../assets/icons/SearchIcon";
 import { FireIcon } from "../assets/icons/FireIcon";
@@ -5,9 +7,45 @@ import { CartIcon } from "../assets/icons/CartIcon";
 import { ClockIcon } from "../assets/icons/ClockIcon";
 import { mockItems } from "../data/Produtos.mock";
 import { categories } from "../data/types.produtos";
+import type { MenuItem } from "../data/types.produtos";
 import { MenuCard } from "../components/MenuCard";
+import { useCart } from "../contexts/CartContext";
 
 export default function MenuPage() {
+  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const { items, total } = useCart();
+  const navigate = useNavigate();
+
+  // Filtrar itens por busca e categoria
+  const filteredItems = mockItems.filter((item) => {
+    const matchesSearch =
+      search === "" ||
+      item.name.toLowerCase().includes(search.toLowerCase()) ||
+      item.desc.toLowerCase().includes(search.toLowerCase());
+
+    const matchesCategory =
+      selectedCategory === null ||
+      selectedCategory === "Todos" ||
+      item.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
+
+  // Agrupar itens por categoria
+  const groupedItems = categories.reduce(
+    (acc, category) => {
+      const categoryItems = filteredItems.filter(
+        (item) => item.category === category,
+      );
+      if (categoryItems.length > 0) {
+        acc[category] = categoryItems;
+      }
+      return acc;
+    },
+    {} as Record<string, MenuItem[]>,
+  );
+
   return (
     <div className="min-h-screen max-w-screen bg-zinc-950">
       {/* Background accent */}
@@ -51,6 +89,8 @@ export default function MenuPage() {
             <SearchIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
             <input
               type="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               placeholder="Buscar no cardápio (ex: smash, combo, batata...)"
               className="w-full rounded-2xl border border-white/10 bg-zinc-900/40 py-3 pl-10 pr-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-amber-500/40 focus:ring-4 focus:ring-amber-500/10"
             />
@@ -60,8 +100,15 @@ export default function MenuPage() {
             {categories.map((c) => (
               <button
                 key={c}
+                onClick={() =>
+                  setSelectedCategory(selectedCategory === c ? null : c)
+                }
                 type="button"
-                className="cursor-pointer rounded-full border border-white/10 bg-zinc-900/40 px-3 py-1.5 text-sm text-zinc-200 transition hover:bg-zinc-900/70 hover:text-zinc-50"
+                className={`cursor-pointer rounded-full border px-3 py-1.5 text-sm transition ${
+                  selectedCategory === c
+                    ? "border-amber-500 bg-amber-500/20 text-amber-200"
+                    : "border-white/10 bg-zinc-900/40 text-zinc-200 hover:bg-zinc-900/70 hover:text-zinc-50"
+                }`}
               >
                 {c}
               </button>
@@ -101,7 +148,9 @@ export default function MenuPage() {
         {/* Grid */}
         <section className="mt-6">
           <div className="mb-3 flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-zinc-200">Itens</h3>
+            <h3 className="text-sm font-semibold text-zinc-200">
+              {filteredItems.length} itens encontrados
+            </h3>
             <button
               type="button"
               className="text-sm text-zinc-400 underline decoration-white/10 underline-offset-4 transition hover:text-zinc-200"
@@ -110,18 +159,14 @@ export default function MenuPage() {
             </button>
           </div>
 
-          {/* <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {mockItems.map((item: MenuItem) => (
-              <MenuCard key={item.id} item={item} />
-            ))}
-          </div> */}
-
-          {categories.map((category) => {
-            const items = mockItems.filter(
-              (item) => item.category === category,
-            );
-
-            return (
+          {filteredItems.length === 0 ? (
+            <div className="rounded-2xl border border-white/10 bg-zinc-900/30 py-12 text-center">
+              <p className="text-zinc-400">
+                Nenhum item encontrado com "{search}"
+              </p>
+            </div>
+          ) : (
+            Object.entries(groupedItems).map(([category, items]) => (
               <section key={category} className="mt-8">
                 {/* Título */}
                 <div className="mb-3 flex items-center justify-between">
@@ -139,11 +184,11 @@ export default function MenuPage() {
                   ))}
                 </div>
               </section>
-            );
-          })}
+            ))
+          )}
         </section>
 
-        {/* Sticky cart bar (UI) */}
+        {/* Sticky cart bar */}
         <div className="sticky bottom-4 mt-8">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-3xl border border-white/10 bg-zinc-950/70 px-4 py-3 backdrop-blur">
             <div className="flex items-center gap-3">
@@ -154,13 +199,18 @@ export default function MenuPage() {
                 <p className="text-sm font-semibold text-zinc-100">
                   Seu carrinho
                 </p>
-                <p className="text-xs text-zinc-400">0 itens • R$ 0,00</p>
+                <p className="text-xs text-zinc-400">
+                  {items.length} {items.length === 1 ? "item" : "itens"} • R${" "}
+                  {total.toFixed(2).replace(".", ",")}
+                </p>
               </div>
             </div>
 
             <button
+              onClick={() => navigate("/cart")}
+              disabled={items.length === 0}
               type="button"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-500 px-4 py-2.5 text-sm font-semibold text-zinc-950 shadow-lg shadow-amber-500/10 transition hover:bg-amber-400 active:scale-[0.99]"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-500 px-4 py-2.5 text-sm font-semibold text-zinc-950 shadow-lg shadow-amber-500/10 transition hover:bg-amber-400 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Finalizar
               <ArrowRightIcon className="h-4 w-4" />
